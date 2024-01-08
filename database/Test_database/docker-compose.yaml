@@ -1,0 +1,20 @@
+services:
+  postgres_one:
+    image: timescale/timescaledb:latest-pg13
+    restart: always
+    ports:
+      - 54328:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: one
+
+
+  postgres_two:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: two
+    ports:
+      - "54329:5432"
